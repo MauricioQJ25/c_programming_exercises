@@ -3,6 +3,7 @@
 #include<vector>
 #include<fstream>
 #include<sstream>
+#include<algorithm>
 
 class Person{
 public:
@@ -93,6 +94,16 @@ public:
         }
         return counterAlive;
     }
+
+    void searchPerson(std::string name){
+        auto it = find_if(this->_personV->begin(), this->_personV->end(), [name](Person person){return person._name == name;});
+        if (it !=  this->_personV->end()){
+            std::cout << name <<" - Person found" << std::endl;
+            it->printInfo();
+            return;
+        }
+        std::cout << name <<" - Person NOT found" << std::endl;
+    }
 };
 
 
@@ -121,5 +132,7 @@ int main(int argc, char* arg[]){
     }
 
     std::cout << "Max year: " << maxYear << " persons alive " << counterPrev << std::endl; 
+
+    handler.searchPerson("Kendall");
     return 0;
 }
