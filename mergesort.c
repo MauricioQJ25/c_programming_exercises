@@ -2,11 +2,6 @@
 
 #include <stdio.h>
 
-// m   
-// 9, 8, 6, 5, 7, 4, 0, 1, 2, 3
-// [8,9] - [5,6] - [4,7] - [0, 1] - [2,3]
-// [5,6, 9, 9]
-
 void merge(int* array, int l, int m, int r){
 
     int leftlength = m -  l + 1;
@@ -23,12 +18,6 @@ void merge(int* array, int l, int m, int r){
     for (j = 0; j < rightlength; j++){
         rightArray[j] = array[m + 1 + j];
     }
-    //              i 
-    // left[] =   { 0 5 3 8 2}
-    //              j
-    // right[] =  { 0 5 8 6 7}
-    //             k 
-    // array       {                    }
     i = 0;
     j = 0;
     k = 0;
@@ -55,7 +44,6 @@ void mergeSortRecursive(int* array, int l, int r){
     } else {
         return;
     }
-
 }
 
 
